@@ -3,56 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#f7faf8">
   <meta name="description" content="ToolGIS — thư viện 120 bài toán GIS cốt lõi theo 10 tầng, đối chiếu QGIS, Google Maps/Earth và ArcGIS.">
   <title>ToolGIS · 120 bài toán GIS cốt lõi</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="./">ToolGIS</a>
-    <div class="toplinks">
-      <a href="https://plugins.qgis.org/plugins/" target="_blank" rel="noreferrer">QGIS Plugins</a>
-      <a href="https://developers.google.com/maps/documentation" target="_blank" rel="noreferrer">Google Maps</a>
-      <a href="https://developers.google.com/earth-engine/" target="_blank" rel="noreferrer">Earth Engine</a>
-      <a href="https://pro.arcgis.com/" target="_blank" rel="noreferrer">ArcGIS</a>
+    <div class="topbarInner">
+      <a class="brand" href="./" aria-label="ToolGIS trang chủ">
+        <span class="brandMark" aria-hidden="true">⌖</span>
+        <span>ToolGIS</span>
+      </a>
+      <nav class="toplinks" aria-label="Nguồn hệ sinh thái GIS">
+        <a href="https://plugins.qgis.org/plugins/" target="_blank" rel="noreferrer">QGIS</a>
+        <a href="https://developers.google.com/maps/documentation" target="_blank" rel="noreferrer">Google Maps</a>
+        <a href="https://developers.google.com/earth-engine/" target="_blank" rel="noreferrer">Earth Engine</a>
+        <a href="https://pro.arcgis.com/" target="_blank" rel="noreferrer">ArcGIS</a>
+      </nav>
+      <a class="libraryJump" href="#thu-vien">Khám phá thư viện ↓</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="eyebrow">THƯ VIỆN TRA CỨU GIS · 10 TẦNG</div>
-      <h1>120 bài toán GIS<br><span>từ bản đồ đến GeoAI</span></h1>
-      <p class="lead">Tra cứu một tình huống thực tế, xem dữ liệu cần có, quy trình xử lý, công cụ tương ứng trong QGIS/Plugins, Google Maps Platform/Google Earth Engine và hệ sinh thái ArcGIS, cùng kết quả đầu ra và ví dụ tham chiếu.</p>
-      <div class="heroStats">
-        <div><strong id="statProblems">120</strong><span>bài toán</span></div>
-        <div><strong>10</strong><span>tầng GIS</span></div>
-        <div><strong>4</strong><span>hệ sinh thái</span></div>
+      <div class="heroCopy">
+        <p class="eyebrow">THƯ VIỆN TRA CỨU GIS · 10 TẦNG</p>
+        <h1>Đi từ <span>bài toán</span><br>đến cách giải GIS.</h1>
+        <p class="lead">120 tình huống thực tiễn được tổ chức theo 10 tầng chức năng. Mỗi bài toán chỉ rõ dữ liệu cần có, workflow, công cụ tương ứng trong QGIS, Google Maps/Earth, ArcGIS và open source, cùng kết quả đầu ra và nguồn tham khảo.</p>
+        <div class="heroActions">
+          <a class="primaryAction" href="#thu-vien">Tra cứu bài toán</a>
+          <span class="coordinate">10°45′N · 106°41′E</span>
+        </div>
+        <div class="heroStats" aria-label="Thống kê thư viện">
+          <div><strong id="statProblems">120</strong><span>bài toán</span></div>
+          <div><strong>10</strong><span>tầng chức năng</span></div>
+          <div><strong>4</strong><span>hệ sinh thái</span></div>
+        </div>
       </div>
+
+      <aside class="spatialPanel" aria-label="Mô hình 10 tầng GIS">
+        <div class="spatialHeader">
+          <span>GIS STACK</span>
+          <span class="scaleBar" aria-hidden="true"></span>
+          <span>10 LAYERS</span>
+        </div>
+        <div class="stackMap">
+          <div class="north" aria-hidden="true">N ↑</div>
+          <div class="stackLayer"><b>L10</b><span>GeoAI · Automation</span></div>
+          <div class="stackLayer"><b>L9</b><span>Spatial Intelligence</span></div>
+          <div class="stackLayer"><b>L8</b><span>Realtime · IoT</span></div>
+          <div class="stackLayer"><b>L7</b><span>3D · Reality GIS</span></div>
+          <div class="stackLayer"><b>L6</b><span>Raster · Remote Sensing</span></div>
+          <div class="stackLayer"><b>L5</b><span>Network Analyst</span></div>
+          <div class="stackLayer"><b>L4</b><span>Spatial Analysis</span></div>
+          <div class="stackLayer"><b>L3</b><span>Data Management</span></div>
+          <div class="stackLayer"><b>L2</b><span>Places · Geocoding</span></div>
+          <div class="stackLayer"><b>L1</b><span>Map · Visualization</span></div>
+        </div>
+        <div class="spatialFooter"><span>Input</span><i></i><span>Analysis</span><i></i><span>Decision</span></div>
+      </aside>
     </section>
 
-    <section class="searchPanel" aria-label="Bộ lọc">
-      <label class="searchbox">
-        <span>⌕</span>
-        <input id="search" type="search" placeholder="Ví dụ: vùng phục vụ bệnh viện, ngập, VN-2000, NDVI, VRP, 3D..." autocomplete="off">
-      </label>
-      <div class="filters">
-        <select id="layerFilter"><option value="">Tất cả 10 tầng</option></select>
-        <select id="ecosystemFilter">
-          <option value="">Mọi hệ sinh thái</option>
-          <option value="qgis">QGIS / Plugin</option>
-          <option value="google">Google Maps / Earth</option>
-          <option value="arcgis">ArcGIS</option>
-          <option value="open">Open source</option>
-        </select>
-        <button id="resetFilters" type="button">Đặt lại</button>
+    <section class="searchPanel" id="thu-vien" aria-label="Bộ lọc thư viện">
+      <div class="searchRow">
+        <label class="searchbox">
+          <span class="searchIcon" aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Tìm: isochrone, VN-2000, NDVI, ngập, VRP, 3D..." autocomplete="off">
+          <span class="keyHint">/</span>
+        </label>
+        <div class="filters">
+          <select id="layerFilter" aria-label="Lọc theo tầng GIS"><option value="">Tất cả 10 tầng</option></select>
+          <select id="ecosystemFilter" aria-label="Lọc theo hệ sinh thái">
+            <option value="">Mọi hệ sinh thái</option>
+            <option value="qgis">QGIS / Plugin</option>
+            <option value="google">Google Maps / Earth</option>
+            <option value="arcgis">ArcGIS</option>
+            <option value="open">Open source</option>
+          </select>
+          <button id="resetFilters" type="button">Đặt lại</button>
+        </div>
       </div>
-      <div class="chips" id="layerChips"></div>
+      <div class="chips" id="layerChips" aria-label="Chọn nhanh tầng GIS"></div>
     </section>
 
     <section class="resultsHead">
       <div>
-        <p class="eyebrow">KẾT QUẢ TRA CỨU</p>
+        <p class="eyebrow">THƯ VIỆN BÀI TOÁN</p>
         <h2 id="resultTitle">Tất cả bài toán</h2>
       </div>
       <p id="resultCount"></p>
@@ -61,13 +98,16 @@
     <section id="grid" class="grid" aria-live="polite"></section>
 
     <section class="method">
-      <p class="eyebrow">CÁCH ĐỌC THƯ VIỆN</p>
-      <h2>Không bắt đầu từ phần mềm. Bắt đầu từ bài toán.</h2>
+      <div class="methodIntro">
+        <p class="eyebrow">CÁCH ĐỌC TOOLGIS</p>
+        <h2>Bắt đầu từ nhu cầu thực tế, không bắt đầu từ tên phần mềm.</h2>
+        <p>Một bài toán tốt phải nói rõ câu hỏi, dữ liệu, phép phân tích và kết quả cần nhận. Công cụ chỉ là lớp thực thi.</p>
+      </div>
       <div class="methodGrid">
-        <article><b>1</b><h3>Tình huống</h3><p>Ai cần giải quyết điều gì, trong bối cảnh thật.</p></article>
-        <article><b>2</b><h3>Dữ liệu vào</h3><p>Layer, bảng, ảnh, DEM, GPS, sensor hay địa chỉ nào cần có.</p></article>
-        <article><b>3</b><h3>Workflow</h3><p>Các bước GIS tối thiểu để đi từ dữ liệu đến kết quả.</p></article>
-        <article><b>4</b><h3>Đối chiếu công cụ</h3><p>QGIS, Google, ArcGIS và open source có thể đảm nhiệm phần nào.</p></article>
+        <article><b>01</b><h3>Tình huống</h3><p>Ai đang cần quyết định điều gì?</p></article>
+        <article><b>02</b><h3>Dữ liệu vào</h3><p>Cần layer, bảng, DEM, GPS hay sensor nào?</p></article>
+        <article><b>03</b><h3>Workflow</h3><p>Các bước không gian nào thực sự cần chạy?</p></article>
+        <article><b>04</b><h3>Đầu ra</h3><p>Bản đồ, bảng, tuyến, vùng hay chỉ số nào trả lời được câu hỏi?</p></article>
       </div>
     </section>
   </main>
@@ -78,8 +118,8 @@
   </dialog>
 
   <footer>
-    <div><b>ToolGIS</b> · Thư viện học tập và thiết kế workflow GIS.</div>
-    <div>Nguồn được liên kết tới tài liệu/website/repository gốc. Kiểm tra giấy phép, hạn mức và phiên bản trước khi triển khai production.</div>
+    <div><b>⌖ ToolGIS</b><span>120 bài toán · 10 tầng GIS</span></div>
+    <div>Thư viện tham khảo kỹ thuật. Luôn kiểm tra phiên bản API, giấy phép, quota và tài liệu nguồn trước khi triển khai production.</div>
   </footer>
 
   <script src="./data.js"></script>
