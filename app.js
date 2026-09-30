@@ -17,7 +17,11 @@
     o.value = l.id; o.textContent = l.short + ' · ' + l.name;
     layerFilter.appendChild(o);
     const b = document.createElement('button');
-    b.className = 'chip'; b.dataset.layer = l.id; b.textContent = l.short;
+    b.className = 'chip';
+    b.dataset.layer = l.id;
+    const chipName = l.name.split(/[·&]/)[0].trim();
+    b.textContent = l.short + ' · ' + chipName;
+    b.setAttribute('aria-label', 'Lọc ' + l.short + ': ' + l.name);
     b.addEventListener('click', () => {
       layerFilter.value = layerFilter.value === l.id ? '' : l.id;
       render();
@@ -42,7 +46,7 @@
     const lf = layerFilter.value;
     const eco = ecosystemFilter.value;
     const items = problems.filter(p => (!lf || p.layer === lf) && (!q || haystack(p).includes(q)) && ecosystemMatch(p, eco));
-    count.textContent = items.length + ' / ' + problems.length + ' bài toán';
+    count.textContent = items.length === problems.length ? problems.length + ' bài toán' : items.length + ' kết quả · ' + problems.length + ' tổng';
     const l = layerOf(lf);
     title.textContent = lf ? l.short + ' · ' + l.name : (q ? 'Kết quả cho “' + search.value.trim() + '”' : 'Tất cả bài toán');
     document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.layer === lf));
@@ -53,7 +57,7 @@
   function card(p) {
     const l = layerOf(p.layer), t = platformsFor(p);
     const available = [['QGIS',t.qgis],['Google',t.google],['ArcGIS',t.arcgis],['Open',t.open]].filter(x => x[1] && x[1] !== '—').slice(0,3);
-    return '<article class="card" tabindex="0" data-id="'+esc(p.id)+'"><div class="cardTop"><span class="layerBadge">'+esc(l.short)+' · '+esc(l.name)+'</span><span class="idBadge">'+esc(p.id)+'</span></div><h3>'+esc(p.title)+'</h3><p class="scenario">'+esc(p.scenario)+'</p><div class="miniTools">'+available.map(x=>'<span>'+esc(x[0])+'</span>').join('')+'</div><div class="cardFoot"><b>'+esc(p.exampleType || 'Tình huống thực tế')+'</b><span>Mở chi tiết →</span></div></article>';
+    return '<article class="card" tabindex="0" data-layer="'+esc(p.layer)+'" data-id="'+esc(p.id)+'"><div class="cardTop"><span class="layerBadge">'+esc(l.short)+' · '+esc(l.name)+'</span><span class="idBadge">'+esc(p.id)+'</span></div><h3>'+esc(p.title)+'</h3><p class="scenario">'+esc(p.scenario)+'</p><div class="miniTools">'+available.map(x=>'<span>'+esc(x[0])+'</span>').join('')+'</div><div class="cardFoot"><b>'+esc(p.exampleType || 'Tình huống thực tế')+'</b><span>Mở chi tiết →</span></div></article>';
   }
 
   function openProblem(id) {
@@ -83,6 +87,21 @@
   ecosystemFilter.addEventListener('change', render);
   document.getElementById('resetFilters').addEventListener('click',()=>{search.value='';layerFilter.value='';ecosystemFilter.value='';render()});
   grid.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('card')){e.preventDefault();openProblem(e.target.dataset.id)}});
+
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'SELECT') {
+      e.preventDefault();
+      search.focus();
+    }
+    if (e.key === 'Escape') {
+      if (dialog.open) {
+        dialog.close();
+      } else if (search.value) {
+        search.value = '';
+        render();
+      }
+    }
+  });
 
   document.getElementById('statProblems').textContent = problems.length;
   render();
