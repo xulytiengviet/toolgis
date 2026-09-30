@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="ToolGIS — thư viện 120 bài toán GIS cốt lõi theo 10 tầng, đối chiếu QGIS, Google Maps/Earth và ArcGIS.">
+  <title>ToolGIS · 120 bài toán GIS cốt lõi</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./">ToolGIS</a>
+    <div class="toplinks">
+      <a href="https://plugins.qgis.org/plugins/" target="_blank" rel="noreferrer">QGIS Plugins</a>
+      <a href="https://developers.google.com/maps/documentation" target="_blank" rel="noreferrer">Google Maps</a>
+      <a href="https://developers.google.com/earth-engine/" target="_blank" rel="noreferrer">Earth Engine</a>
+      <a href="https://pro.arcgis.com/" target="_blank" rel="noreferrer">ArcGIS</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">THƯ VIỆN TRA CỨU GIS · 10 TẦNG</div>
+      <h1>120 bài toán GIS<br><span>từ bản đồ đến GeoAI</span></h1>
+      <p class="lead">Tra cứu một tình huống thực tế, xem dữ liệu cần có, quy trình xử lý, công cụ tương ứng trong QGIS/Plugins, Google Maps Platform/Google Earth Engine và hệ sinh thái ArcGIS, cùng kết quả đầu ra và ví dụ tham chiếu.</p>
+      <div class="heroStats">
+        <div><strong id="statProblems">120</strong><span>bài toán</span></div>
+        <div><strong>10</strong><span>tầng GIS</span></div>
+        <div><strong>4</strong><span>hệ sinh thái</span></div>
+      </div>
+    </section>
+
+    <section class="searchPanel" aria-label="Bộ lọc">
+      <label class="searchbox">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Ví dụ: vùng phục vụ bệnh viện, ngập, VN-2000, NDVI, VRP, 3D..." autocomplete="off">
+      </label>
+      <div class="filters">
+        <select id="layerFilter"><option value="">Tất cả 10 tầng</option></select>
+        <select id="ecosystemFilter">
+          <option value="">Mọi hệ sinh thái</option>
+          <option value="qgis">QGIS / Plugin</option>
+          <option value="google">Google Maps / Earth</option>
+          <option value="arcgis">ArcGIS</option>
+          <option value="open">Open source</option>
+        </select>
+        <button id="resetFilters" type="button">Đặt lại</button>
+      </div>
+      <div class="chips" id="layerChips"></div>
+    </section>
+
+    <section class="resultsHead">
+      <div>
+        <p class="eyebrow">KẾT QUẢ TRA CỨU</p>
+        <h2 id="resultTitle">Tất cả bài toán</h2>
+      </div>
+      <p id="resultCount"></p>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+
+    <section class="method">
+      <p class="eyebrow">CÁCH ĐỌC THƯ VIỆN</p>
+      <h2>Không bắt đầu từ phần mềm. Bắt đầu từ bài toán.</h2>
+      <div class="methodGrid">
+        <article><b>1</b><h3>Tình huống</h3><p>Ai cần giải quyết điều gì, trong bối cảnh thật.</p></article>
+        <article><b>2</b><h3>Dữ liệu vào</h3><p>Layer, bảng, ảnh, DEM, GPS, sensor hay địa chỉ nào cần có.</p></article>
+        <article><b>3</b><h3>Workflow</h3><p>Các bước GIS tối thiểu để đi từ dữ liệu đến kết quả.</p></article>
+        <article><b>4</b><h3>Đối chiếu công cụ</h3><p>QGIS, Google, ArcGIS và open source có thể đảm nhiệm phần nào.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="problemDialog">
+    <button class="dialogClose" id="dialogClose" aria-label="Đóng">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <footer>
+    <div><b>ToolGIS</b> · Thư viện học tập và thiết kế workflow GIS.</div>
+    <div>Nguồn được liên kết tới tài liệu/website/repository gốc. Kiểm tra giấy phép, hạn mức và phiên bản trước khi triển khai production.</div>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
