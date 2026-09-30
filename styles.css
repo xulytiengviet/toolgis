@@ -391,3 +391,75 @@ footer div:last-child{max-width:680px;text-align:right}
   .stackLayer{margin-left:0!important}
   .methodGrid{grid-template-columns:1fr}
 }
+
+.techNotice{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) 250px;
+  gap:24px;
+  align-items:start;
+  margin:0 0 72px;
+  padding:26px;
+  border:1px solid var(--line-strong);
+  border-radius:22px;
+  background:rgba(255,255,255,.92)
+}
+.noticeIcon{
+  display:grid;
+  place-items:center;
+  width:42px;height:42px;
+  border:1px solid #b7d2c5;
+  border-radius:50%;
+  background:var(--accent-soft);
+  color:var(--accent);
+  font:800 17px Georgia,serif
+}
+.noticeCopy h2{
+  margin:0 0 8px;
+  font-size:24px;
+  letter-spacing:-.035em
+}
+.noticeCopy>p:last-child{
+  margin:0;
+  max-width:760px;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.72
+}
+.noticeCopy strong{color:var(--text)}
+.licenseCard{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--paper-soft)
+}
+.licenseCard>span{
+  color:var(--accent);
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.14em
+}
+.licenseCard strong{
+  font-size:18px;
+  letter-spacing:-.025em
+}
+.licenseCard small{color:var(--muted);font-size:11px}
+.licenseCard a{
+  margin-top:8px;
+  color:var(--blue);
+  font-size:11px;
+  font-weight:800;
+  text-decoration:none
+}
+.licenseCard a:hover{text-decoration:underline}
+@media(max-width:760px){
+  .techNotice{grid-template-columns:auto 1fr;margin-bottom:52px;padding:20px}
+  .licenseCard{grid-column:1/-1}
+}
+@media(max-width:460px){
+  .techNotice{grid-template-columns:1fr}
+  .noticeIcon{width:36px;height:36px}
+  .licenseCard{grid-column:auto}
+}
