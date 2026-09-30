@@ -36,7 +36,7 @@ Sau đó mở http://localhost:8000
 
 ## GitHub Pages
 
-Repo có workflow `.github/workflows/pages.yml`. Trong **Settings → Pages**, chọn **Source: GitHub Actions** nếu Pages chưa được bật.
+Trang là static site thuần HTML/CSS/JS. Trong **Settings → Pages**, chọn **Deploy from a branch**, Branch **main**, thư mục **/(root)**, rồi Save. Sau đó GitHub Pages sẽ phục vụ trực tiếp nội dung ở root.
 
 ## Nguồn đối chiếu chính
 
