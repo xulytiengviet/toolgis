@@ -1,6 +1,6 @@
 # ToolGIS — Thư viện 120 bài toán GIS cốt lõi
 
-ToolGIS là thư viện tra cứu bằng tiếng Việt, tổ chức **120 bài toán GIS thực tiễn** theo **10 tầng chức năng**. Mỗi bài toán có tình huống cụ thể, dữ liệu đầu vào, quy trình, công cụ tương ứng trong QGIS/QGIS Plugins, Google Maps Platform/Google Earth Engine và hệ sinh thái ArcGIS, đầu ra mong đợi và liên kết tham khảo.
+ToolGIS do **Long Ngo phát triển**, là thư viện tra cứu bằng tiếng Việt, tổ chức **120 bài toán GIS thực tiễn** theo **10 tầng chức năng**. Mỗi bài toán có tình huống cụ thể, dữ liệu đầu vào, quy trình, công cụ tương ứng trong QGIS/QGIS Plugins, Google Maps Platform/Google Earth Engine và hệ sinh thái ArcGIS, đầu ra mong đợi và liên kết tham khảo.
 
 ## 10 tầng
 
@@ -47,4 +47,12 @@ Trang là static site thuần HTML/CSS/JS. Trong **Settings → Pages**, chọn 
 - ArcGIS Pro: https://pro.arcgis.com/
 - ArcGIS Developers: https://developers.arcgis.com/
 
-> ToolGIS là thư viện tham khảo học thuật/kỹ thuật. Tên API, hạn mức, giấy phép và tính khả dụng có thể thay đổi; luôn kiểm tra tài liệu gốc trước khi triển khai production.
+## Giấy phép
+
+ToolGIS được phát hành theo **MIT License**. Xem toàn văn tại [LICENSE](./LICENSE).
+
+**Phát triển:** Long Ngo
+
+## Lưu ý kỹ thuật
+
+> ToolGIS là thư viện tham khảo kỹ thuật. Người dùng cần tham khảo kỹ thuật trước và luôn kiểm tra **phiên bản API, giấy phép, quota, phạm vi dữ liệu, điều khoản sử dụng và tài liệu nguồn** trước khi triển khai thực hiện hoặc đưa vào môi trường production. Tên API, hạn mức, giấy phép và tính khả dụng của dịch vụ bên thứ ba có thể thay đổi theo thời gian.
